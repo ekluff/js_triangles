@@ -2,65 +2,28 @@ var triangle = function(sideA, sideB, sideC) {
   var sides = [sideA, sideB, sideC].sort();
 
   if (sides[2] >= sides[0] + sides[1]) {
-    return(false);
+    return('not a triangle');
   } else if ((sides[0] === sides[1]) && (sides[1] === sides[2])){
     return('equilateral');
-  };
-
-  if ((sides[0] === sides[1]) || (sides[0] === sides[2])){
+  } else if ((sides[0] === sides[1]) || (sides[0] === sides[2])){
     return('isosceles');
-  };
-
-  if((sides[0] != sides[1]) && (sides[0] != sides [2]) && (sides[1] != sides[2])) {
+  } else if ((sides[0] != sides[1]) && (sides[0] != sides [2]) && (sides[1] != sides[2])) {
     return('scalene');
+  } else {
+    return 'where am I???~?!?!? let me out! its so dark in here....'
   };
 
 };
 
+$(document).ready(function() {
+  $("form#triangle").submit(function(event) {
+    var sideA = parseInt($("input#sideA").val());
+    var sideB = parseInt($("input#sideB").val());
+    var sideC = parseInt($("input#sideC").val());
 
+    var result = triangle(sideA, sideB, sideC);
+    $("#type").text(result);
+    event.preventDefault();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var leapYear = function(year) {
-//   if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// };
-//
-//
-// $(document).ready(function() {
-//   $("form#leap-year").submit(function(event) {
-//     var year = parseInt($("input#year").val());
-//     var result = leapYear(year);
-//
-//     $(".year").text(year);
-//     if (!result) {
-//       $(".not").text("not").show();
-//     } else {
-//       $(".not").hide()
-//     }
-//
-//     $("#result").show();
-//     event.preventDefault();
-//
-//   });
-// });
+  });
+});

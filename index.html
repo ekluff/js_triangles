@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>yay triangles</title>
-  </head>
-  <body>
-    <form id="triangle" action="index.html" method="post">
+<head>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
 
-    </form>
-  </body>
+  <script src="js/jquery-1.11.2.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>yay triangles</title>
+</head>
+<body>
+  <form id="triangle">
+    <div class="form-group">
+      <h4>Can you make a triangle?</h4>
+      <label for="sideA">Side A:</label>
+      <input id="sideA" type="number" min="1" required>
+      <label for="sideB">Side B:</label>
+      <input id="sideB" type="number" min="1" required>
+      <label for="sideC">Side C:</label>
+      <input id="sideC" type="number" min="1" required>
+    </div>
+    <button type="submit" class="btn">Find out!</button>
+  </form>
+  <p>
+    Your triangle is <span id="type"></span>
+  </p>
+</body>
 </html>
